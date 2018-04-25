@@ -1,5 +1,10 @@
 package br.com.beautpath.modelo;
 
+/**
+ * 
+ * @author Karina
+ *	Meu primeiro commit na vida
+ */
 public class Servico {
 	private String descricao;
 	private double valor;
