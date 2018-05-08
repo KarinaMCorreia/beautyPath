@@ -1,18 +1,19 @@
 package br.com.beautpath.modelo;
 
 public class Endereco {
-	private int cod_end;
+
+	private int idEndereco;
 	private String logradouro;
 	private String cidade;
 	private String cep;
 	private String estado;
 
-	public int getCod_end() {
-		return cod_end;
+	public int getIdEndereco() {
+		return idEndereco;
 	}
 
-	public void setCod_end(int cod_end) {
-		this.cod_end = cod_end;
+	public void setIdEndereco(int idEndereco) {
+		this.idEndereco = idEndereco;
 	}
 
 	public String getLogradouro() {
@@ -20,9 +21,6 @@ public class Endereco {
 	}
 
 	public void setLogradouro(String logradouro) {
-		if (logradouro.length() > 30) {
-			logradouro = "Endereço maior que 30";
-		}
 		this.logradouro = logradouro;
 	}
 
@@ -31,9 +29,6 @@ public class Endereco {
 	}
 
 	public void setCidade(String cidade) {
-		if (cidade.length() > 22) {
-			cidade = "Cidade maior que 22";
-		}
 		this.cidade = cidade;
 	}
 
@@ -42,9 +37,6 @@ public class Endereco {
 	}
 
 	public void setCep(String cep) {
-		if (cep.length() > 9) {
-			cep = "Erro!";
-		}
 		this.cep = cep;
 	}
 
@@ -53,15 +45,12 @@ public class Endereco {
 	}
 
 	public void setEstado(String estado) {
-		if (estado.length() > 30) {
-			estado = "Estado com erro";
-		}
 		this.estado = estado;
 	}
 
-	public Endereco(int cod_end, String logradouro, String cidade, String cep, String estado) {
+	public Endereco(int idEndereco, String logradouro, String cidade, String cep, String estado) {
 		super();
-		setCod_end(cod_end);
+		setIdEndereco(idEndereco);
 		setLogradouro(logradouro);
 		setCidade(cidade);
 		setCep(cep);
@@ -69,7 +58,8 @@ public class Endereco {
 	}
 
 	public Endereco() {
-
+		
 	}
-
+	
+	
 }

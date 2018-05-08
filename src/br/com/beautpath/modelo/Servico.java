@@ -1,52 +1,67 @@
 package br.com.beautpath.modelo;
 
 public class Servico {
-	private int cod_serv;
-	private int qnt_serv;
-	private double valor_srv;
-	private String desc_srv;
 
-	public int getCod_serv() {
-		return cod_serv;
+	private int idServico;
+	private int quantidade;
+	private double valor;
+	private String descricao;
+	private Catalogo idCatalogo;
+
+	public int getIdServico() {
+		return idServico;
 	}
 
-	public void setCod_serv(int cod_serv) {
-		this.cod_serv = cod_serv;
+	public void setIdServico(int idServico) {
+		this.idServico = idServico;
 	}
 
-	public int getQnt_serv() {
-		return qnt_serv;
+	public int getQuantidade() {
+		return quantidade;
 	}
 
-	public void setQnt_serv(int qnt_serv) {
-		this.qnt_serv = qnt_serv;
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
-	public double getValor_srv() {
-		return valor_srv;
+	public double getValor() {
+		return valor;
 	}
 
-	public void setValor_srv(double valor_srv) {
-		this.valor_srv = valor_srv;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
-	public String getDesc_srv() {
-		return desc_srv;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDesc_srv(String desc_srv) {
-		this.desc_srv = desc_srv;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public Servico(int cod_serv, int qnt_serv, double valor_srv, String desc_srv) {
+	public Catalogo getIdCatalogo() {
+		return idCatalogo;
+	}
+
+	public void setIdCatalogo(Catalogo idCatalogo) {
+		this.idCatalogo = idCatalogo;
+	}
+
+	public Servico(int idServico, int quantidade, double valor, String descricao, Catalogo idCatalogo) {
 		super();
-		setCod_serv(cod_serv);;
-		setQnt_serv(qnt_serv);
-		setValor_srv(valor_srv);
-		setDesc_srv(desc_srv);
+		setIdServico(idServico);;
+		setQuantidade(quantidade);;
+		setValor(valor);;
+		setDescricao(descricao);;
+		setIdCatalogo(idCatalogo);
 	}
 
 	public Servico() {
 	}
+	
+	
+	
+	
 
 }

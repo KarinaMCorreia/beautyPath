@@ -1,71 +1,70 @@
 package br.com.beautpath.modelo;
 
 public class Profissional {
-	private int cod_prof;
-	private String nome_prof;
-	private String tel_prof;
-	private String reg_prof;
-	private String social_url_1_prof;
-	private String social_url_2_prof;
+	private int idProfissional;
+	private String nome;
+	private String telefone;
+	private String registro;
+	private String socialUrl;
+	private String socialUrl1;
 
-	public int getCod_prof() {
-		return cod_prof;
+	public int getIdProfissional() {
+		return idProfissional;
 	}
 
-	public void setCod_prof(int cod_prof) {
-		this.cod_prof = cod_prof;
+	public void setIdProfissional(int idProfissional) {
+		this.idProfissional = idProfissional;
 	}
 
-	public String getNome_prof() {
-		return nome_prof;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_prof(String nome_prof) {
-		this.nome_prof = nome_prof;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getTel_prof() {
-		return tel_prof;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setTel_prof(String tel_prof) {
-		this.tel_prof = tel_prof;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
-	public String getReg_prof() {
-		return reg_prof;
+	public String getRegistro() {
+		return registro;
 	}
 
-	public void setReg_prof(String reg_prof) {
-		this.reg_prof = reg_prof;
+	public void setRegistro(String registro) {
+		this.registro = registro;
 	}
 
-	public String getSocial_url_1_prof() {
-		return social_url_1_prof;
+	public String getSocialUrl() {
+		return socialUrl;
 	}
 
-	public void setSocial_url_1_prof(String social_url_1_prof) {
-		this.social_url_1_prof = social_url_1_prof;
+	public void setSocialUrl(String socialUrl) {
+		this.socialUrl = socialUrl;
 	}
 
-	public String getSocial_url_2_prof() {
-		return social_url_2_prof;
+	public String getSocialUrl1() {
+		return socialUrl1;
 	}
 
-	public void setSocial_url_2_prof(String social_url_2_prof) {
-		this.social_url_2_prof = social_url_2_prof;
+	public void setSocialUrl1(String socialUrl1) {
+		this.socialUrl1 = socialUrl1;
 	}
 
-	public Profissional(int cod_prof, String nome_prof, String tel_prof, String reg_prof, String social_url_1_prof,
-			String social_url_2_prof) {
+	public Profissional(int idProfissional, String nome, String telefone, String registro, String socialUrl,
+			String socialUrl1) {
 		super();
-		setCod_prof(cod_prof);
-		;
-		setNome_prof(nome_prof);
-		setTel_prof(tel_prof);
-		setReg_prof(reg_prof);
-		setSocial_url_1_prof(social_url_1_prof);
-		setSocial_url_2_prof(social_url_2_prof);
+		setIdProfissional(idProfissional);
+		setNome(nome);
+		setTelefone(telefone);
+		setRegistro(registro);
+		setSocialUrl(socialUrl1);
+		setSocialUrl1(socialUrl1);
 	}
 
 	public Profissional() {
