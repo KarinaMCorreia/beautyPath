@@ -37,7 +37,11 @@ public class Servico {
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		if (descricao.length() > 100) {
+			descricao.substring(0, 100);
+		} else {
+			this.descricao = descricao;
+		}
 	}
 
 	public Catalogo getIdCatalogo() {
@@ -50,18 +54,14 @@ public class Servico {
 
 	public Servico(int idServico, int quantidade, double valor, String descricao, Catalogo idCatalogo) {
 		super();
-		setIdServico(idServico);;
-		setQuantidade(quantidade);;
-		setValor(valor);;
-		setDescricao(descricao);;
+		setIdServico(idServico);
+		setQuantidade(quantidade);
+		setValor(valor);
+		setDescricao(descricao);
 		setIdCatalogo(idCatalogo);
 	}
 
 	public Servico() {
 	}
-	
-	
-	
-	
 
 }

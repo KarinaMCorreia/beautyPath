@@ -17,7 +17,11 @@ public class Catalogo {
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		if (descricao.length() > 100) {
+			this.descricao = descricao.substring(0, 100);
+		} else {
+			this.descricao = descricao;
+		}
 	}
 
 	public Catalogo(int idCatelogo, String descricao) {
@@ -28,6 +32,16 @@ public class Catalogo {
 
 	public Catalogo() {
 
+	}
+
+	public String getAll() {
+		return "Cod. Catalogo: " + idCatelogo + "\nDescricao: " + descricao;
+	}
+
+	public void setAll(int idCatelogo, String descricao) {
+
+		setIdCatelogo(idCatelogo);
+		setDescricao(descricao);
 	}
 
 }

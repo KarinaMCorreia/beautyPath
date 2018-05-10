@@ -21,7 +21,12 @@ public class Agendamento {
 	}
 
 	public void setData(String data) {
-		this.data = data;
+		if (data.length() > 10) {
+			
+			this.data = data.substring(0, 10);
+		} else {
+			this.data = data;
+		}
 	}
 
 	public String getHora() {
@@ -29,7 +34,12 @@ public class Agendamento {
 	}
 
 	public void setHora(String hora) {
-		this.hora = hora;
+		if (hora.length() > 10) {
+			
+			this.hora = hora.substring(0, 10);
+		} else {
+			this.hora = hora;
+		}
 	}
 
 	public String getObs() {
@@ -37,7 +47,12 @@ public class Agendamento {
 	}
 
 	public void setObs(String obs) {
-		this.obs = obs;
+		if (obs.length() > 200) {
+			
+			this.obs = obs.substring(0, 200);
+		} else {
+			this.obs = obs;
+		}
 	}
 
 	public int getIdAgendamento() {
@@ -75,7 +90,7 @@ public class Agendamento {
 	public Agendamento(String data, String hora, String obs, int idAgendamento, Profissional idProfissional,
 			Catalogo idCatalogo, Cliente idCliente) {
 		super();
-		setData(data);;
+		setData(data);
 		setHora(hora);
 		setObs(obs);
 		setIdAgendamento(idAgendamento);
@@ -85,10 +100,23 @@ public class Agendamento {
 	}
 
 	public Agendamento() {
-		
-	}
-	
-	
-	
 
+	}
+
+	public String getAll() {
+		return "Hora: " + hora + "\nData: " + data + "\nObs: " + obs + "\nCod. agendamento: " + idAgendamento
+				+ "\nCod. Cliente: " + idCliente + "\nCod. Catalogo: " + idCatalogo + "\nCod. Profissional: "
+				+ idProfissional;
+	}
+
+	public void setAll(String data, String hora, String obs, int idAgendamento, Profissional idProfissional,
+			Catalogo idCatalogo, Cliente idCliente) {
+		setData(data);
+		setHora(hora);
+		setObs(obs);
+		setIdAgendamento(idAgendamento);
+		setIdProfissional(idProfissional);
+		setIdCatalogo(idCatalogo);
+		setIdCliente(idCliente);
+	}
 }

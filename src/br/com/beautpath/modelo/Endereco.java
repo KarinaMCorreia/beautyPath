@@ -21,7 +21,12 @@ public class Endereco {
 	}
 
 	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+		if (logradouro.length() > 30) {
+			
+			this.logradouro = logradouro.substring(0, 30);
+		} else {
+			this.logradouro = logradouro;
+		}
 	}
 
 	public String getCidade() {
@@ -29,7 +34,12 @@ public class Endereco {
 	}
 
 	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		if (cidade.length() > 22) {
+			
+			this.cidade = cidade.substring(0, 22);
+		} else {
+			this.cidade = cidade;
+		}
 	}
 
 	public String getCep() {
@@ -37,7 +47,12 @@ public class Endereco {
 	}
 
 	public void setCep(String cep) {
-		this.cep = cep;
+		if (cep.length() > 9) {
+			
+			this.cep = cep.substring(0, 9);
+		} else {
+			this.cep = cep;
+		}
 	}
 
 	public String getEstado() {
@@ -45,7 +60,12 @@ public class Endereco {
 	}
 
 	public void setEstado(String estado) {
-		this.estado = estado;
+		if (estado.length() > 30) {
+			
+			this.estado = estado.substring(0, 30);
+		} else {
+			this.estado = estado;
+		}
 	}
 
 	public Endereco(int idEndereco, String logradouro, String cidade, String cep, String estado) {
@@ -58,8 +78,7 @@ public class Endereco {
 	}
 
 	public Endereco() {
-		
+
 	}
-	
-	
+
 }
