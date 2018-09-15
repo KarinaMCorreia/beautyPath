@@ -1,4 +1,4 @@
-package br.com.beautpath.modelo;
+package br.com.beautypath.modelo;
 
 public class Servico {
 
