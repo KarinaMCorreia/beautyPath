@@ -90,5 +90,16 @@ public class Profissional {
 	public Profissional() {
 
 	}
+	
+	public void setAll(int idProfissional, String nome, String telefone, String registro, String socialUrl,
+			String socialUrl1) {
+		setIdProfissional(idProfissional);
+		setNome(nome);
+		setTelefone(telefone);
+		setRegistro(registro);
+		setSocialUrl(socialUrl1);
+		setSocialUrl1(socialUrl1);
+	}
+
 
 }
