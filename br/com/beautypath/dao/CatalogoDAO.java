@@ -13,7 +13,7 @@ public class CatalogoDAO {
 
 	private PreparedStatement ps;
 	private ResultSet rs;
-	
+
 	public String gravar(Catalogo cat, Connection conexao) throws SQLException {
 		String sql = "insert into rm79935.catalogo(COD_CAT, DESC_CAT) values (SEQ_CATALOGO.NEXTVAL, ?)";
 		ps = conexao.prepareStatement(sql);
@@ -22,14 +22,14 @@ public class CatalogoDAO {
 		ps.close();
 		return "Catalogo gravado com sucesso";
 	}
-	
+
 	public int apagar(int numero, Connection conexao) throws SQLException {
 		String sql = "delete from rm79935.catalogo where COD_CAT = ?";
 		ps = conexao.prepareStatement(sql);
 		ps.setInt(1, numero);
 		return ps.executeUpdate();
 	}
-	
+
 	public List<Catalogo> getCatalogos(Connection conexao) throws Exception {
 		String sql = "select * from rm79935.catalogo";
 		List<Catalogo> listaCatalogos = new ArrayList<Catalogo>();
@@ -44,7 +44,7 @@ public class CatalogoDAO {
 		rs.close();
 		ps.close();
 		return listaCatalogos;
-		
+
 	}
 
 }
