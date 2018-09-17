@@ -12,9 +12,8 @@ import br.com.beautypath.modelo.Profissional;
 public class TestaCadastroProfissional {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		try {
-			String user = JOptionPane.showInputDialog("Digite seu usuário");
+			String user = JOptionPane.showInputDialog("Digite seu usuario");
 			String pw = JOptionPane.showInputDialog("Digite a sua senha");
 			Connection c = ConnectionFactory.controlarInstancia().getConnection(user, pw);
 			
