@@ -20,7 +20,7 @@ public class EnderecoDAO {
 		ps.setString(5, end.getEstado());
 		ps.execute();
 		ps.close();
-		return "Endereço gravado com sucesso";
+		return "Endereco gravado com sucesso";
 	}
 	
 	public int apagar(int numero, Connection conexao) throws SQLException {

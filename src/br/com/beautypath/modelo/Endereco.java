@@ -80,5 +80,12 @@ public class Endereco {
 	public Endereco() {
 
 	}
-
+	
+	public void setAll(int idEndereco, String logradouro, String cidade, String cep, String estado) {
+		setIdEndereco(idEndereco);
+		setLogradouro(logradouro);
+		setCidade(cidade);
+		setCep(cep);
+		setEstado(estado);
+	}
 }
