@@ -2,13 +2,17 @@ package br.com.beautypath.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.beautypath.modelo.Cliente;
 
 public class ClienteDAO {
 
 	private PreparedStatement ps;
+	private ResultSet rs;
 
 	/**
 	 * 
@@ -16,10 +20,9 @@ public class ClienteDAO {
 	 * @return executa o comando insert na tabela
 	 * @throws SQLException
 	 * @author Yuri Breion
-	 * @see Clientes
-	 * + gravar(): Recebe um cliente como parametro
+	 * @see Clientes + gravar(): Recebe um cliente como parametro
 	 */
-	
+
 	public String gravar(Cliente cli, Connection conexao) throws SQLException {
 		String sql = "insert into rm79935.cliente(COD_CLI, NOME_CLI, TEL_CLI, EMAIL_CLI, SOCIAL_URL_CLI) values (SEQ_CLIENTE.NEXTVAL, ?, ?, ?, ?)";
 		ps = conexao.prepareStatement(sql);
@@ -31,7 +34,7 @@ public class ClienteDAO {
 		ps.close();
 		return "Cliente gravado com sucesso";
 	}
-	
+
 	/**
 	 * 
 	 * @param numero
@@ -44,5 +47,24 @@ public class ClienteDAO {
 		ps = conexao.prepareStatement(sql);
 		ps.setInt(1, numero);
 		return ps.executeUpdate();
+	}
+
+	public List<Cliente> getClientes(Connection conexao) throws SQLException {
+		String sql = "select * from rm79935.cliente";
+		List<Cliente> listaClientes = new ArrayList<Cliente>();
+		ps = conexao.prepareStatement(sql);
+		rs = ps.executeQuery();
+		while (rs.next()) {
+			Cliente cli = new Cliente();
+			cli.setIdCliente(rs.getInt("COD_CLI"));
+			cli.setNome(rs.getString("NOME_CLI"));
+			cli.setTelefone(rs.getString("TEL_CLI"));
+			cli.setEmail(rs.getString("EMAIL_CLI"));
+			cli.setSocialUrl(rs.getString("SOCIAL_URL_CLI"));
+			listaClientes.add(cli);
+		}
+		rs.close();
+		ps.close();
+		return listaClientes;
 	}
 }
