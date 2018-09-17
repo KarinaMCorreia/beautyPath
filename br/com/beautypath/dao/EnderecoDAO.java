@@ -11,13 +11,12 @@ public class EnderecoDAO {
 	private PreparedStatement ps;
 	
 	public String gravar(Endereco end, Connection conexao) throws SQLException {
-		String sql = "insert into rm79935.endereco(COD_END, LOGRADOURO, CIDADE, CEP, ESTADO) values (?, ?, ?, ?, ?)";
+		String sql = "insert into rm79935.endereco(COD_END, LOGRADOURO, CIDADE, CEP, ESTADO) values (SEQ_ENDERECO.NEXTVAL, ?, ?, ?, ?)";
 		ps = conexao.prepareStatement(sql);
-		ps.setInt(1, end.getIdEndereco());
-		ps.setString(2, end.getLogradouro());
-		ps.setString(3, end.getCidade());
-		ps.setString(4, end.getCep());
-		ps.setString(5, end.getEstado());
+		ps.setString(1, end.getLogradouro());
+		ps.setString(2, end.getCidade());
+		ps.setString(3, end.getCep());
+		ps.setString(4, end.getEstado());
 		ps.execute();
 		ps.close();
 		return "Endereco gravado com sucesso";

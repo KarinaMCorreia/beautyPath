@@ -8,13 +8,14 @@ import java.sql.DriverManager;
 public final class ConnectionFactory {
 
 	private static ConnectionFactory conexao = null;
+
 	public static ConnectionFactory controlarInstancia() {
 		if (conexao == null) {
 			conexao = new ConnectionFactory();
 		}
 		return conexao;
 	}
-	
+
 	public Connection getConnection(String user, String pw) throws Exception {
 		FileReader arquivo = new FileReader(System.getProperty("user.dir") + ("/conexao/banco.txt"));
 		BufferedReader dados = new BufferedReader(arquivo);

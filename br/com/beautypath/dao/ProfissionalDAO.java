@@ -11,14 +11,13 @@ public class ProfissionalDAO {
 	private PreparedStatement ps;
 	
 	public String gravar(Profissional prof, Connection conexao) throws SQLException {
-		String sql = "insert into rm79935.profissional(COD_PROF, NOME_PROF, TEL_PROF, REG_PROF, SOCIAL_URL_1_PROF, SOCIAL_URL_2_PROF) values (?, ?, ?, ?, ?, ? )";
+		String sql = "insert into rm79935.profissional(COD_PROF, NOME_PROF, TEL_PROF, REG_PROF, SOCIAL_URL_1_PROF, SOCIAL_URL_2_PROF) values (SEQ_PROFISSIONAL, ?, ?, ?, ?, ? )";
 		ps = conexao.prepareStatement(sql);
-		ps.setInt(1, prof.getIdProfissional());
-		ps.setString(2, prof.getNome());
-		ps.setString(3, prof.getTelefone());
-		ps.setString(4, prof.getRegistro());
-		ps.setString(5, prof.getSocialUrl());
-		ps.setString(6, prof.getSocialUrl1());
+		ps.setString(1, prof.getNome());
+		ps.setString(2, prof.getTelefone());
+		ps.setString(3, prof.getRegistro());
+		ps.setString(4, prof.getSocialUrl());
+		ps.setString(5, prof.getSocialUrl1());
 		ps.execute();
 		ps.close();
 		return "Profissional gravado com sucesso";

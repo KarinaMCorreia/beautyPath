@@ -11,7 +11,7 @@ public class TestaCadastroCliente {
 			Cliente cli = new Cliente();
 			ClienteDAO dao = new ClienteDAO();
 			cli.setAll(1, "Yuri Breion", "998065815", "yuribreion@br.ibm.com", "@yuribreion");
-			dao.gravar(cli);
+			dao.gravar(cli, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
