@@ -1,6 +1,7 @@
 package br.com.beautypath.teste;
 
 import java.sql.Connection;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -21,6 +22,11 @@ public class TestaCatalogo {
 			cat.setDescricao(JOptionPane.showInputDialog("Digite a descrição do catalogo:"));
 			
 			dao.gravar(cat, c);
+			
+			List<Catalogo> lista = dao.getCatalogos(c);
+			for (Catalogo catalogo : lista) {
+				System.out.println("Código do catalogo: " + catalogo.getIdCatelogo() + "\nDescrição: " + catalogo.getDescricao() + "\n" );
+			}
 			
 			
 		} catch (Exception e) {
