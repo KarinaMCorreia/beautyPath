@@ -1,9 +1,10 @@
 package br.com.beautypath.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import br.com.beautypath.modelo.Agendamento;
 import br.com.beautypath.modelo.Cliente;
@@ -11,28 +12,21 @@ import br.com.beautypath.modelo.Endereco;
 import br.com.beautypath.modelo.Profissional;
 
 public class AgendamentoDAO {
-	private Connection conexao;
 	private PreparedStatement ps;
-	private ResultSet rs;
 	
 	Cliente cli = new Cliente();
 	Profissional prof = new Profissional();
 	Endereco end = new Endereco();
-
-	public AgendamentoDAO() throws SQLException {
-		this.conexao = new ConnectionFactory().getConnection();
-	}
 	
-	public String gravar(Agendamento agd) throws SQLException {
-		String sql = "insert into rm79935.agendamento(COD_AGD, DATA_AGD, HORA_AGD, COD_CLI, COD_PROF, OBS, COD_END) values (?, ?, ?, ?, ?, ?, ? )";
+	public String gravar(Agendamento agd, Connection conexao) throws SQLException {
+		String sql = "insert into rm79935.agendamento(COD_AGD, DATA_AGD, HORA_AGD, COD_CLI, COD_PROF, OBS, COD_END) values (SEQ_AGENDAMENTO.NEXTVAL, ?, ?, ?, ?, ?, ? )";
 		ps = conexao.prepareStatement(sql);
-		ps.setInt(1, agd.getIdAgendamento());
-		ps.setString(2, agd.getData());
-		ps.setString(3, agd.getHora());
-		ps.setInt(4, cli.getIdCliente());
-		ps.setInt(5, prof.getIdProfissional());
-		ps.setString(6, agd.getObs());
-		ps.setInt(7, end.getIdEndereco());
+		ps.setDate(1, new Date(agd.getData().getTimeInMillis()));
+		ps.setTimestamp(2, new Timestamp(agd.getHora().getTimeInMillis()));
+		ps.setInt(3, cli.getIdCliente());
+		ps.setInt(4, prof.getIdProfissional());
+		ps.setString(5, agd.getObs());
+		ps.setInt(6, end.getIdEndereco());
 		ps.execute();
 		ps.close();
 		return "Agendamento gravado com sucesso";

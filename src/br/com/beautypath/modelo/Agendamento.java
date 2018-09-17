@@ -1,5 +1,7 @@
 package br.com.beautypath.modelo;
 
+import java.util.Calendar;
+
 /**
  * 
  * @author YURIBreion
@@ -8,38 +10,28 @@ package br.com.beautypath.modelo;
 
 public class Agendamento {
 
-	private String data;
-	private String hora;
+	private Calendar data;
+	private Calendar hora;
 	private String obs;
 	private int idAgendamento;
 	private Profissional idProfissional;
 	private Catalogo idCatalogo;
 	private Cliente idCliente;
 
-	public String getData() {
+	public Calendar getData() {
 		return data;
 	}
 
-	public void setData(String data) {
-		if (data.length() > 10) {
-			
-			this.data = data.substring(0, 10);
-		} else {
-			this.data = data;
-		}
+	public void setData(Calendar data) {
+		this.data = data;
 	}
 
-	public String getHora() {
+	public Calendar getHora() {
 		return hora;
 	}
 
-	public void setHora(String hora) {
-		if (hora.length() > 10) {
-			
-			this.hora = hora.substring(0, 10);
-		} else {
-			this.hora = hora;
-		}
+	public void setHora(Calendar hora) {
+		this.hora = hora;
 	}
 
 	public String getObs() {
@@ -47,20 +39,11 @@ public class Agendamento {
 	}
 
 	public void setObs(String obs) {
-		if (obs.length() > 200) {
-			
-			this.obs = obs.substring(0, 200);
-		} else {
-			this.obs = obs;
-		}
+		this.obs = obs;
 	}
 
 	public int getIdAgendamento() {
 		return idAgendamento;
-	}
-
-	public void setIdAgendamento(int idAgendamento) {
-		this.idAgendamento = idAgendamento;
 	}
 
 	public Profissional getIdProfissional() {
@@ -87,13 +70,11 @@ public class Agendamento {
 		this.idCliente = idCliente;
 	}
 
-	public Agendamento(String data, String hora, String obs, int idAgendamento, Profissional idProfissional,
+	public Agendamento(Calendar data, Calendar hora, String obs, int idAgendamento, Profissional idProfissional,
 			Catalogo idCatalogo, Cliente idCliente) {
-		super();
 		setData(data);
 		setHora(hora);
 		setObs(obs);
-		setIdAgendamento(idAgendamento);
 		setIdProfissional(idProfissional);
 		setIdCatalogo(idCatalogo);
 		setIdCliente(idCliente);
@@ -108,13 +89,12 @@ public class Agendamento {
 				+ "\nCod. Cliente: " + idCliente + "\nCod. Catalogo: " + idCatalogo + "\nCod. Profissional: "
 				+ idProfissional;
 	}
-
-	public void setAll(String data, String hora, String obs, int idAgendamento, Profissional idProfissional,
+	
+	public void setAll(Calendar data, Calendar hora, String obs, Profissional idProfissional,
 			Catalogo idCatalogo, Cliente idCliente) {
 		setData(data);
 		setHora(hora);
 		setObs(obs);
-		setIdAgendamento(idAgendamento);
 		setIdProfissional(idProfissional);
 		setIdCatalogo(idCatalogo);
 		setIdCliente(idCliente);

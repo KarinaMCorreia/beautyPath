@@ -2,22 +2,15 @@ package br.com.beautypath.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.beautypath.modelo.Endereco;
 
 public class EnderecoDAO {
 
-	private Connection conexao;
 	private PreparedStatement ps;
-	private ResultSet rs;
 	
-	public EnderecoDAO() throws SQLException {
-		this.conexao = new ConnectionFactory().getConnection();
-	}
-	
-	public String gravar(Endereco end) throws SQLException {
+	public String gravar(Endereco end, Connection conexao) throws SQLException {
 		String sql = "insert into rm79935.endereco(COD_END, LOGRADOURO, CIDADE, CEP, ESTADO) values (?, ?, ?, ?, ?)";
 		ps = conexao.prepareStatement(sql);
 		ps.setInt(1, end.getIdEndereco());
@@ -30,7 +23,7 @@ public class EnderecoDAO {
 		return "Endereço gravado com sucesso";
 	}
 	
-	public int apagar(int numero) throws SQLException {
+	public int apagar(int numero, Connection conexao) throws SQLException {
 		String sql = "delete from rm79935.endereco where COD_END = ?";
 		ps = conexao.prepareStatement(sql);
 		ps.setInt(1, numero);

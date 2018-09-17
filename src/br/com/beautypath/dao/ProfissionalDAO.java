@@ -2,22 +2,15 @@ package br.com.beautypath.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.beautypath.modelo.Profissional;
 
 public class ProfissionalDAO {
 
-	private Connection conexao;
 	private PreparedStatement ps;
-	private ResultSet rs;
 	
-	public ProfissionalDAO() throws SQLException {
-		this.conexao = new ConnectionFactory().getConnection();
-	}
-	
-	public String gravar(Profissional prof) throws SQLException {
+	public String gravar(Profissional prof, Connection conexao) throws SQLException {
 		String sql = "insert into rm79935.profissional(COD_PROF, NOME_PROF, TEL_PROF, REG_PROF, SOCIAL_URL_1_PROF, SOCIAL_URL_2_PROF) values (?, ?, ?, ?, ?, ? )";
 		ps = conexao.prepareStatement(sql);
 		ps.setInt(1, prof.getIdProfissional());
@@ -31,7 +24,7 @@ public class ProfissionalDAO {
 		return "Profissional gravado com sucesso";
 	}
 	
-	public int apagar(int numero) throws SQLException {
+	public int apagar(int numero, Connection conexao) throws SQLException {
 		String sql = "delete from rm79935.profissional where COD_PROF = ?";
 		ps = conexao.prepareStatement(sql);
 		ps.setInt(1, numero);
