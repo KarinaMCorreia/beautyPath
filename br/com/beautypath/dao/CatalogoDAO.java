@@ -11,10 +11,9 @@ public class CatalogoDAO {
 	private PreparedStatement ps;
 	
 	public String gravar(Catalogo cat, Connection conexao) throws SQLException {
-		String sql = "insert into rm79935.catalogo(COD_CAT, DESC_CAT) values (?, ?)";
+		String sql = "insert into rm79935.catalogo(COD_CAT, DESC_CAT) values (SEQ_CATALOGO.NEXTVAL, ?)";
 		ps = conexao.prepareStatement(sql);
-		ps.setInt(1, cat.getIdCatelogo());
-		ps.setString(2, cat.getDescricao());
+		ps.setString(1, cat.getDescricao());
 		ps.execute();
 		ps.close();
 		return "Catalogo gravado com sucesso";
